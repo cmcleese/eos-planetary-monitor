@@ -1,0 +1,31 @@
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  // Ensure Tailwind works in all subfolders
+  "tailwindCSS.includeLanguages": {
+    "javascript": "javascript",
+    "typescript": "typescript",
+    "vue": "vue",
+    "html": "html"
+  },
+  // Hide common unwanted files/folders
+  "files.exclude": {
+    "**/.git": true,
+    "**/.DS_Store": true,
+    "**/node_modules": false // show/hide node_modules as needed
+  },
+  // Eslint settings
+  
+  "eslint.validate": [
+    "javascript",
+    "typescript",
+    "vue",
+    "react"
+  ],
+  "eslint.workingDirectories": [
+    { "mode": "auto" }
+  ]
+}

@@ -1,0 +1,4 @@
+packages:
+  - 'vue-epm'
+  #- 'react-epm'
+  - 'shared-assets'

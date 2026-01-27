@@ -1,2 +1,3 @@
-# Astrolabe
-Planetary viewer with style
+# Eos Planetary Monitor
+
+Planetary viewer with style currently build with Vue.

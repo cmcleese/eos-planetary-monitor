@@ -1,0 +1,18 @@
+# .prettierignore
+
+# Dependencies
+node_modules
+**/node_modules
+pnpm-lock.yaml
+**/pnpm-lock.yaml
+
+# Directories
+dist
+**/dist
+public/
+**/public/
+shared-assets
+
+# System
+.vscode
+.DS_Store
