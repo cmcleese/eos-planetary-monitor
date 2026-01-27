@@ -1,2 +1,2 @@
-# astrolabe
+# Astrolabe
 Planetary viewer with style
