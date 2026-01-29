@@ -27,6 +27,15 @@ export default [
     plugins: {
       import: importX,
     },
+    settings: {
+      'import-x/resolver': {
+        typescript: {
+          alwaysTryTypes: true,
+          // Location of tsconfigs
+          project: ['vue-epm/tsconfig.app.json', 'vue-epm/tsconfig.node.json'],
+        },
+      },
+    },
     languageOptions: {
       ecmaVersion: 'latest',
       sourceType: 'module',
@@ -45,7 +54,7 @@ export default [
       '@typescript-eslint/no-duplicate-enum-values': 'warn',
       'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'warn',
       // Ensure imports point to a file/module that can be resolved.
-      'import/no-unresolved': 'off', // <- change latter because TS handles this,
+      'import/no-unresolved': 'error',
       // Forbid modules without exports, or exports without matching import in another module.
       'import/no-unused-modules': 'warn',
       // Forbid repeated import of the same module in multiple places.

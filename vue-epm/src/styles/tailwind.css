@@ -1,0 +1,20 @@
+/* Plain CSS - Sass will never touch this */
+@import 'tailwindcss';
+
+@theme {
+  /* System / EOS Palette */
+  --color-eos-gold: #d4af37;
+  --color-eos-space: #0b0d17;
+  --color-eos-hazard: #ff4500;
+  --color-eos-glass: rgba(255, 255, 255, 0.05);
+
+  /* Starfleet / LCARS Palette */
+  --color-lcars-orange: #ff9900;
+  --color-lcars-apricot: #ffcc99;
+  --color-lcars-blue: #99ccff;
+  --color-lcars-purple: #cc99cc;
+  --color-lcars-pink: #ff99cc;
+
+  /* Scifi Typography */
+  --font-scifi: 'Inter', system-ui, sans-serif;
+}

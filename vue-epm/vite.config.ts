@@ -12,6 +12,14 @@ export default defineConfig({
       allow: ['..'],
     },
   },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        // This tells Sass to ignore the deprecation warning for @import
+        silenceDeprecations: ['import'],
+      },
+    },
+  },
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),

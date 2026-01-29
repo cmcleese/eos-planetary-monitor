@@ -26,6 +26,9 @@
     "react"
   ],
   "eslint.workingDirectories": [
-    { "mode": "auto" }
+    { "mode": "auto" },
+    
+    // { "pattern": "./vue-epm" },
+    // { "pattern": "./react-app" }
   ]
 }
