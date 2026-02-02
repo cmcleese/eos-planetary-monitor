@@ -52,7 +52,7 @@ export default [
       'vue/multi-word-component-names': 'off', // Easier for side projects
       '@typescript-eslint/no-unused-vars': 'warn',
       '@typescript-eslint/no-duplicate-enum-values': 'warn',
-      'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'warn',
+      'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
       // Ensure imports point to a file/module that can be resolved.
       'import/no-unresolved': 'error',
       // Forbid modules without exports, or exports without matching import in another module.

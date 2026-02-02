@@ -5,7 +5,7 @@
 
 <template>
   <div class="flex h-full px-4 bg-eos-glass">
-
+    InfoPanel
   </div>
 </template>
 

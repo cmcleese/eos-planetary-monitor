@@ -1,20 +1,37 @@
 /* Plain CSS - Sass will never touch this */
 @import 'tailwindcss';
+@import 'tw-animate-css';
 
 @theme {
-  /* System / EOS Palette */
-  --color-eos-gold: #d4af37;
-  --color-eos-space: #0b0d17;
-  --color-eos-hazard: #ff4500;
-  --color-eos-glass: rgba(255, 255, 255, 0.05);
+  /* 1. Define your custom Orbital Pulse palette */
+  --color-orbit-bg: #09090b;
+  --color-orbit-cyan: #2dd4bf;
+  --color-orbit-border: #27272a;
 
-  /* Starfleet / LCARS Palette */
-  --color-lcars-orange: #ff9900;
-  --color-lcars-apricot: #ffcc99;
-  --color-lcars-blue: #99ccff;
-  --color-lcars-purple: #cc99cc;
-  --color-lcars-pink: #ff99cc;
+  /* 2. Map Shadcn variables to your palette */
+  --color-background: var(--color-orbit-bg);
+  --color-foreground: #fafafa;
 
-  /* Scifi Typography */
-  --font-scifi: 'Inter', system-ui, sans-serif;
+  --color-primary: var(--color-orbit-cyan);
+  --color-primary-foreground: var(--color-orbit-bg);
+
+  --color-accent: rgba(45, 212, 191, 0.1);
+  --color-accent-foreground: var(--color-orbit-cyan);
+
+  --color-border: var(--color-orbit-border);
+  --color-ring: var(--color-orbit-cyan);
+
+  /* 3. Radius (Sharp corners for scifi) */
+  --radius-xl: 0.5rem;
+  --radius-lg: 0.3rem;
+  --radius-md: 0.1rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
 }

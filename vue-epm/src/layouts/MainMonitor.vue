@@ -1,18 +1,23 @@
 <script setup lang="ts">
+import { provide } from 'vue';
+
 import AppHeader from '@/components/layouts/AppHeader.vue';
-import SidebarNav from '@/components/layouts/SidebarNav.vue';
-import InfoPanel from '@/components/layouts/InfoPanel.vue';
-import AppFooter from '@/components/layouts/AppFooter.vue';
+import LeftPanel from '@/components/layouts/LeftPanel.vue';
+import CesiumViewer from '@/components/layouts/CesiumMap/CesiumViewer.vue';
+
+import { useCesium } from '@/composables/useCesium';
+
+// Provide
+const cesiumController = useCesium();
+provide('planetaryEngine', cesiumController);
 
 </script>
 
 <template>
   <div class="monitor-grid">
     <header class="header"> <AppHeader /> </header>
-    <nav class="nav"> <SidebarNav /> </nav>
-    <main class="globe"> <div id="cesiumContainer"></div> </main>
-    <aside class="infoPanel"> <InfoPanel /> </aside>
-    <footer class="footer"> <AppFooter /> </footer>
+    <nav class="left-panel"> <LeftPanel /> </nav>
+    <!-- <main class="globe"> <CesiumViewer /> </main> -->
   </div>
 </template>
 

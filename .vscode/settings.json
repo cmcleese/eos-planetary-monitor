@@ -4,6 +4,9 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"
   },
+   "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   // Ensure Tailwind works in all subfolders
   "tailwindCSS.includeLanguages": {
     "javascript": "javascript",
@@ -30,5 +33,7 @@
     
     // { "pattern": "./vue-epm" },
     // { "pattern": "./react-app" }
-  ]
+  ],
+   "prettier.configPath": ".prettierrc",
+  "prettier.requireConfig": true
 }
