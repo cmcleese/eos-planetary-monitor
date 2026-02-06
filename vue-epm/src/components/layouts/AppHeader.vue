@@ -1,13 +1,30 @@
 <script setup lang="ts">
+import { cn } from '@/lib/utils';
+import { SidebarTrigger, useSidebar } from '@/components/ui/sidebar';
 
+const props = defineProps<{
+  class?: HTMLAttributes['class'];
+  minimal?: boolean;
+}>();
 
+const { open, isMobile } = useSidebar();
 </script>
 
 <template>
-  <div class="flex items-center h-full px-4 bg-eos-gold">
-    <span class="text-white font-bold tracking-tighter">EOS // PLANETARY_MONITOR</span>
-  </div>
+  <header :class="cn('flex justify-between gap-2', minimal && 'flex-row-reverse', props.class)">
+    <h1
+      :class="
+        cn(
+          'pr-3 text-lg font-bold tracking-tight text-white/70 uppercase',
+          minimal && 'monitor:hidden'
+        )
+      "
+    >
+      EOS // PLANETARY_MONITOR
+    </h1>
+    <SidebarTrigger :class="cn('', minimal && open && 'monitor:hidden')" />
+  </header>
+  <p v-if="!isMobile && !minimal" :class="'text-xs font-medium text-white/30'">
+    Space Situational Awareness
+  </p>
 </template>
-
-<style lang="scss" scoped>
-</style>

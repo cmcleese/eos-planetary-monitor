@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Plus } from 'lucide-vue-next'; // The small + in the corner
+import { ShieldCheck } from 'lucide-vue-next'; // The small + in the corner
 import StatTile from '@/components/dashboard/StatTile.vue';
 import { statusKeys } from '@/constants/statuses';
 
@@ -8,7 +8,7 @@ const systemsList = [
   {
     label: 'Satellites',
     value: '2,345',
-    status: statusKeys[0], // 'normal'
+    status: statusKeys[3], // 'info'
   },
   {
     label: 'Space Status',
@@ -18,12 +18,12 @@ const systemsList = [
   {
     label: 'Visibility',
     value: 'Clear - EU/AF',
-    status: statusKeys[3], // 'info'
+    status: statusKeys[0], // 'normal'
   },
   {
     label: 'ISS Status',
-    value: 'Nomans',
-    status: statusKeys[3], // 'info'
+    value: 'Nominal',
+    status: statusKeys[0], // 'normal'
   },
   {
     label: 'Space Weather',
@@ -31,8 +31,8 @@ const systemsList = [
     status: statusKeys[1], // 'warning'
   },
   {
-    label: 'Visibility',
-    value: 'Clear - EU/AF',
+    label: 'Observatories',
+    value: '5,000',
     status: statusKeys[3], // 'info'
   },
 ];
@@ -42,7 +42,7 @@ const systemsList = [
   <!-- Main Outer Card -->
   <Card class="@container border-white/5 bg-neutral-900 backdrop-blur-md">
     <CardHeader class="flex flex-row items-center space-y-0 pb-2">
-      <Plus class="h-5 w-5 text-white/20" />
+      <ShieldCheck class="h-5 w-5 text-white/20" />
       <CardTitle class="text-xs font-bold tracking-widest text-white/40 uppercase">
         Status Summary
       </CardTitle>

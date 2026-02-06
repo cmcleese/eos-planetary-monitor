@@ -63,6 +63,10 @@ export default [
       'import/no-namespace': 'warn',
       // Enforce a newline after import statements.
       'import/newline-after-import': 'warn',
+      // Disable the requirement for hyphenated attributes (props)
+      'vue/attribute-hyphenation': 'off',
+      // Disable the requirement for hyphenated events (v-on)
+      'vue/v-on-event-hyphenation': 'off',
     },
   },
 

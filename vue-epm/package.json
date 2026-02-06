@@ -16,10 +16,12 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "@vueuse/core": "^14.2.0",
     "cesium": "^1.137.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-vue-next": "^0.563.0",
+    "reka-ui": "^2.8.0",
     "tailwind-merge": "^3.4.0",
     "vue": "^3.5.24"
   },
