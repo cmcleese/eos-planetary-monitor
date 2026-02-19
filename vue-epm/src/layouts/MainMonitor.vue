@@ -4,13 +4,13 @@ import { provide } from 'vue';
 import { SidebarInset } from '@/components/ui/sidebar';
 import AppHeader from '@/components/layouts/AppHeader.vue';
 import AppSidebar from '@/components/layouts/AppSidebar.vue';
-import CesiumViewer from '@/components/layouts/CesiumMap/CesiumViewer.vue';
+import CesiumViewer from '@/components/Map/CesiumMap/CesiumViewer.vue';
 
-import { useCesium } from '@/composables/useCesium';
+import { useCesium } from '@/components/Map/CesiumMap/useCesium';
 
 // Provide
-const cesiumController = useCesium();
-provide('planetaryEngine', cesiumController);
+const cesiumViewer = useCesium();
+provide('planetaryEngine', cesiumViewer);
 </script>
 
 <template>

@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { onMounted, onBeforeUnmount, useTemplateRef } from 'vue';
-import { useCesium } from '@/composables/useCesium';
+import { onMounted, onBeforeUnmount, useTemplateRef, inject } from 'vue';
+import type { useCesium } from '@/components/Map/CesiumMap/useCesium';
+import LayerController from '@/components/Map/MapLayers/LayerController.vue';
 
 const props = withDefaults(
   defineProps<{
@@ -12,24 +13,26 @@ const props = withDefaults(
 );
 
 const mapContainer = useTemplateRef('mapContainer');
-const { initialize, viewer } = useCesium();
+const engine = inject<ReturnType<typeof useCesium>>('planetaryEngine');
 
 onMounted(async () => {
   if (mapContainer.value && props.mapEnabled) {
-    await initialize(mapContainer.value);
+    await engine?.initialize(mapContainer.value);
     console.log('EOS Planetary Engine: Online');
   }
 });
 
 onBeforeUnmount(() => {
-  if (viewer.value) {
-    viewer.value.destroy();
+  if (engine?.viewer.value) {
+    engine.viewer.value.destroy();
   }
 });
 </script>
 
 <template>
   <div ref="mapContainer" class="relative h-full w-full bg-black/10">
+    <!-- Headless components that interact with the globe -->
+    <LayerController />
     <!-- Any HTML overlays for the globe specifically -->
     <slot></slot>
     <div v-if="!props.mapEnabled" class="absolute inset-0 flex items-center justify-center">

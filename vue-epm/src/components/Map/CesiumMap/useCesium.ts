@@ -1,13 +1,5 @@
 import { ref, markRaw } from 'vue';
-import {
-  Viewer,
-  Ion,
-  createWorldTerrainAsync,
-  Cartesian3,
-  Color,
-  GeoJsonDataSource,
-  //type Entity,
-} from 'cesium';
+import { Ion, Viewer, Cartesian3, Color, createWorldTerrainAsync, GeoJsonDataSource } from 'cesium';
 import { CESIUM_ION_TOKEN } from '@/constants/constants';
 
 // Use your actual token
@@ -15,6 +7,7 @@ Ion.defaultAccessToken = CESIUM_ION_TOKEN;
 
 export function useCesium() {
   const viewer = ref<Viewer | null>(null);
+  const mapReady = ref(false);
 
   const initialize = async (container: HTMLElement) => {
     const instance = new Viewer(container, {
@@ -30,6 +23,8 @@ export function useCesium() {
 
     // Performance: markRaw is essential in Vue
     viewer.value = markRaw(instance);
+
+    mapReady.value = true;
 
     // Remove the "Credits" logo to clean up the UI (Optional/check license)
     //(instance.cesiumWidget.creditContainer as HTMLElement).style.display = 'none';
@@ -65,6 +60,7 @@ export function useCesium() {
 
   return {
     viewer,
+    mapReady,
     initialize,
     flyToCoordinates,
     loadGeoJson,
