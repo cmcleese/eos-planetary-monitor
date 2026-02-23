@@ -12,11 +12,11 @@ export function useCesium() {
   const initialize = async (container: HTMLElement) => {
     const instance = new Viewer(container, {
       terrainProvider: await createWorldTerrainAsync(),
-      animation: false,
-      timeline: false,
+      animation: true,
+      timeline: true,
       baseLayerPicker: false,
       geocoder: false,
-      infoBox: false,
+      infoBox: true,
       selectionIndicator: false,
       navigationHelpButton: false,
     });

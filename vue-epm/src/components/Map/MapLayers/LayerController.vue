@@ -2,30 +2,25 @@
 import { inject } from 'vue';
 
 import { useLayerManager } from '@/components/Map/MapLayers/useLayerManager';
-import ISSLayer from '@/components/Map/MapLayers/ISS/ISSLayer.vue';
 import type { useCesium } from '@/components/Map/CesiumMap/useCesium';
+import { useSatellites } from '@/components/Map/MapLayers/useSatellites';
 
 const engine = inject<ReturnType<typeof useCesium>>('planetaryEngine');
 
 const { isLayerActive } = useLayerManager();
-
-// Map layer IDs
-const LAYER_MAP = {
-  ISS: 'ZARYA-25544',
-  // STARLINK: '44065', // Future component
-};
+const { satellites } = useSatellites();
 </script>
 
 <template>
-  <!-- 
-    The "Bridge": If the ID is active in the manager, 
-    we mount the ISSLayer component. 
-    Vue will call onMounted in ISSLayer, which adds the entity to Cesium!
-  -->
-  <template v-if="engine?.mapReady">
-    <ISSLayer v-if="isLayerActive(LAYER_MAP.ISS)" />
+  <template v-if="engine?.mapReady.value">
+    <!-- Loop through our registry -->
+    <template v-for="sat in satellites" :key="sat.id">
+      <!-- 
+        Mount the component ONLY if:
+        1. It's active in the manager
+        2. The component actually exists (not null)
+      -->
+      <component :is="sat.component" v-if="isLayerActive(sat.id) && sat.component" />
+    </template>
   </template>
-
-  <!-- Future layers go here -->
-  <!-- <StarlinkLayer v-if="isLayerActive(LAYER_MAP.STARLINK)" /> -->
 </template>

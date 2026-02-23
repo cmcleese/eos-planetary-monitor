@@ -1,15 +1,12 @@
 <script setup lang="ts">
-import LayerListItem from '@/components/dashboard/LayerListItem.vue';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { LayersIcon } from 'lucide-vue-next';
 
+import LayerListItem from '@/components/dashboard/LayerListItem.vue';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { useSatellites } from '@/components/Map/MapLayers/useSatellites';
+
 // List of Satellites
-const satellites = [
-  { name: 'International Space Station', id: 'ZARYA-25544', type: 'Station', active: false },
-  { name: 'Starlink-346', id: '44065', type: 'Comm', active: false },
-  { name: 'NOAA-20', id: '43010', type: 'Weather', active: false },
-  { name: 'GOES-18', id: '47020', type: 'Weather', active: false },
-];
+const { satellites } = useSatellites();
 </script>
 
 <template>
@@ -29,7 +26,6 @@ const satellites = [
           :key="sat.id"
           :name="sat.name"
           :type="sat.type"
-          :initial-enabled="sat.active"
         />
       </div>
     </CardContent>
