@@ -120,7 +120,7 @@ const trackISS = (lat: number, lon: number, alt: number) => {
         },
         label: {
           text: 'ISS',
-          font: '13px monospace',
+          font: '13px  monospace',
           fillColor: Color.fromCssColorString('#2dd4bf'),
           outlineColor: Color.BLACK,
           outlineWidth: 2,

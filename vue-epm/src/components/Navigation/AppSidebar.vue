@@ -6,9 +6,9 @@ import {
   SidebarFooter,
   SidebarGroup,
 } from '@/components/ui/sidebar';
-import StatusSummary from '@/components/dashboard/StatusSummary.vue';
-import AppHeader from '@/components/layouts/AppHeader.vue';
-import LayersList from '@/components/dashboard/LayersList.vue';
+import StatusSummary from '@/components/StatusSummary/StatusSummary.vue';
+import AppHeader from '@/components/Navigation/AppHeader.vue';
+import LayersList from '@/components/GeoLayers/LayersList.vue';
 import ScrollArea from '@/components/ui/scroll-area/ScrollArea.vue';
 </script>
 

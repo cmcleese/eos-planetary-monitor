@@ -2,8 +2,8 @@
 import { provide } from 'vue';
 
 import { SidebarInset } from '@/components/ui/sidebar';
-import AppHeader from '@/components/layouts/AppHeader.vue';
-import AppSidebar from '@/components/layouts/AppSidebar.vue';
+import AppHeader from '@/components/Navigation/AppHeader.vue';
+import AppSidebar from '@/components/Navigation/AppSidebar.vue';
 import CesiumViewer from '@/components/Map/CesiumMap/CesiumViewer.vue';
 
 import { useCesium } from '@/components/Map/CesiumMap/useCesium';

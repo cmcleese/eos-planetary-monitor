@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import { LayersIcon } from 'lucide-vue-next';
 
-import LayerListItem from '@/components/dashboard/LayerListItem.vue';
+import LayerListItem from '@/components/GeoLayers/LayerListItem.vue';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { useSatellites } from '@/components/Map/MapLayers/useSatellites';
+import { useLayers } from '@/components/Map/MapLayers/useLayers';
 
-// List of Satellites
-const { satellites } = useSatellites();
+// List of Layers
+const { layers } = useLayers();
 </script>
 
 <template>
@@ -21,11 +21,11 @@ const { satellites } = useSatellites();
     <CardContent>
       <div class="pr-4">
         <LayerListItem
-          v-for="sat in satellites"
-          :id="sat.id"
-          :key="sat.id"
-          :name="sat.name"
-          :type="sat.type"
+          v-for="layer in layers"
+          :id="layer.id"
+          :key="layer.id"
+          :name="layer.name"
+          :type="layer.type"
         />
       </div>
     </CardContent>

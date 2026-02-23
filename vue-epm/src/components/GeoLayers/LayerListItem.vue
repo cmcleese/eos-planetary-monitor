@@ -30,18 +30,13 @@ const isEnabled = computed({
 </script>
 
 <template>
-  <!-- 
-    We use 'variant="outline"' as a base, 
-    then use Tailwind to make it look scifi.
-  -->
   <Item
     variant="outline"
-    class="group hover:border-orbit-cyan/40 hover:bg-orbit-cyan/3 mb-2 border-white/5 bg-white/2 transition-all"
+    class="group/layerItem hover:border-orbit-cyan/40 hover:bg-orbit-cyan/3 mb-2 border-white/5 bg-white/2 transition-all"
   >
     <ItemMedia>
-      <!-- Scifi Icon with Glow -->
       <div
-        class="bg-orbit-cyan/10 text-orbit-cyan flex h-9 w-9 items-center justify-center rounded-full group-hover:shadow-[0_0_15px_rgba(45,212,191,0.2)]"
+        class="bg-orbit-cyan/10 text-orbit-cyan flex h-9 w-9 items-center justify-center rounded-full group-hover/layerItem:shadow-[0_0_15px_rgba(45,212,191,0.2)]"
       >
         <Radio class="h-4 w-4" />
       </div>

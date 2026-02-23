@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue';
-import { statuses, type StatusKey } from '@/constants/statuses';
+
+import { STATUS_STYLE, type StatusKey } from '@/constants/statuses';
 
 interface Props {
   label: string;
@@ -15,7 +16,7 @@ interface Props {
 
 const props = defineProps<Props>();
 
-const displayColor = computed(() => props.color ?? statuses[props.type ?? 'info']);
+const displayColor = computed(() => props.color ?? STATUS_STYLE[props.type ?? 'info']);
 </script>
 
 <template>

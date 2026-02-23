@@ -1,48 +1,48 @@
 <script setup lang="ts">
+import { computed } from 'vue';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { ShieldCheck } from 'lucide-vue-next'; // The small + in the corner
-import StatTile from '@/components/dashboard/StatTile.vue';
-import { statusKeys } from '@/constants/statuses';
+import { ShieldCheckIcon } from 'lucide-vue-next';
 
-const systemsList = [
+import StatTile from '@/components/StatusSummary/StatTile.vue';
+import { STATUS } from '@/constants/statuses';
+import { useDashboardData } from '@/components/StatusSummary/useDashboardData';
+
+const { dashboardState } = useDashboardData();
+
+const systemsList = computed(() => [
   {
     label: 'Satellites',
-    value: '2,345',
-    status: statusKeys[3], // 'info'
+    value: dashboardState.satelliteCount,
+    status: STATUS.INFO,
   },
   {
     label: 'Space Status',
     value: 'Nominal',
-    status: statusKeys[0], // 'normal'
-  },
-  {
-    label: 'Visibility',
-    value: 'Clear - EU/AF',
-    status: statusKeys[0], // 'normal'
+    status: STATUS.NORMAL,
   },
   {
     label: 'ISS Status',
-    value: 'Nominal',
-    status: statusKeys[0], // 'normal'
+    value: dashboardState.issEnvironment.label,
+    status: dashboardState.issEnvironment.status,
   },
   {
     label: 'Space Weather',
-    value: 'Mild Flare Advisory',
-    status: statusKeys[1], // 'warning'
+    value: dashboardState.spaceWeather.label,
+    status: dashboardState.spaceWeather.status,
   },
   {
     label: 'Observatories',
-    value: '5,000',
-    status: statusKeys[3], // 'info'
+    value: '3 ACTIVE',
+    status: STATUS.WARNING,
   },
-];
+]);
 </script>
 
 <template>
   <!-- Main Outer Card -->
   <Card class="@container border-white/5 bg-neutral-900 backdrop-blur-md">
     <CardHeader class="flex flex-row items-center space-y-0 pb-2">
-      <ShieldCheck class="h-5 w-5 text-white/20" />
+      <ShieldCheckIcon class="h-5 w-5 text-white/20" />
       <CardTitle class="text-xs font-bold tracking-widest text-white/40 uppercase">
         Status Summary
       </CardTitle>
