@@ -48,6 +48,7 @@ const sourceInfo = computed(() => ({
   <div
     class="group relative flex h-full min-h-18 flex-col justify-between rounded-sm bg-black/30 p-2 shadow-[0_0_5px_0_rgb(8_47_73/0.3)]"
   >
+    <!-- Status Icon -->
     <div class="absolute top-1.5 right-1.5 z-20">
       <TooltipProvider :delay-duration="100">
         <Tooltip>
@@ -56,7 +57,7 @@ const sourceInfo = computed(() => ({
               <component
                 :is="sourceInfo.icon"
                 class="size-3.5 opacity-60 transition-opacity hover:opacity-100"
-                :class="sourceInfo.class"
+                :class="[sourceInfo.class, props.isLive ? 'animate-pulse opacity-90' : '']"
               />
             </div>
           </TooltipTrigger>
