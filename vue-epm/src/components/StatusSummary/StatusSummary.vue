@@ -1,41 +1,24 @@
 <script setup lang="ts">
-import { computed } from 'vue';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { onMounted, computed } from 'vue';
 import { ShieldCheckIcon } from 'lucide-vue-next';
 
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+
 import StatTile from '@/components/StatusSummary/StatTile.vue';
-import { STATUS } from '@/constants/statuses';
-import { useDashboardData } from '@/components/StatusSummary/useDashboardData';
+import { useDashboardData, type DashboardTile } from '@/components/StatusSummary/useDashboardData';
 
-const { dashboardState } = useDashboardData();
+const { dashboardState, fetchAllData } = useDashboardData();
 
-const systemsList = computed(() => [
-  {
-    label: 'Satellites',
-    value: dashboardState.satelliteCount,
-    status: STATUS.INFO,
-  },
-  {
-    label: 'Space Status',
-    value: 'Nominal',
-    status: STATUS.NORMAL,
-  },
-  {
-    label: 'ISS Status',
-    value: dashboardState.issEnvironment.label,
-    status: dashboardState.issEnvironment.status,
-  },
-  {
-    label: 'Space Weather',
-    value: dashboardState.spaceWeather.label,
-    status: dashboardState.spaceWeather.status,
-  },
-  {
-    label: 'Observatories',
-    value: '3 ACTIVE',
-    status: STATUS.WARNING,
-  },
-]);
+// Filter out the isLoading property
+const dataObjectsOnly = computed(() => {
+  return Object.values(dashboardState).filter((val): val is DashboardTile => {
+    return typeof val === 'object' && val !== null && 'name' in val;
+  });
+});
+
+onMounted(() => {
+  fetchAllData();
+});
 </script>
 
 <template>
@@ -52,12 +35,17 @@ const systemsList = computed(() => [
       <!-- The 3x2 Grid -->
       <div class="grid auto-rows-fr grid-cols-1 gap-2 @[300px]:grid-cols-2 @[400px]:grid-cols-3">
         <StatTile
-          v-for="system in systemsList"
-          :key="system.label"
-          :label="system.label"
+          v-for="system in dataObjectsOnly"
+          :key="system.name"
+          :name="system.name"
           :value="system.value"
           :type="system.status"
-        />
+          :tooltip="system.tooltip"
+          :component="system.component"
+          :loading="dashboardState.isLoading"
+        >
+          <component :is="system.component" v-if="system.component" :value="system.value" />
+        </StatTile>
       </div>
     </CardContent>
   </Card>
