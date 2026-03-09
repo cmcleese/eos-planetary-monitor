@@ -33,7 +33,7 @@ import ScrollArea from '@/components/ui/scroll-area/ScrollArea.vue';
       </SidebarContent>
     </ScrollArea>
     <SidebarFooter class="border-t border-white/5 p-4">
-      <div class="font-mono text-[9px] text-white/20 uppercase">System Status: Nominal</div>
+      <div class="font-mono text-[10px] text-white/80 uppercase">System Status: Nominal</div>
     </SidebarFooter>
   </Sidebar>
 </template>
