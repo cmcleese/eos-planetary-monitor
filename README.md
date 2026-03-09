@@ -35,28 +35,18 @@ This project is mainly a **technical playground for building high-performance ge
 
 - Vue 3 (Composition API + TypeScript)
 - Vite
-- Tailwind CSS
-
-## Visualization
-
 - CesiumJS
 
-## UI
+## UI & Styling
 
-- Reka UI
-- Lucide Icons
+- **Tailwind CSS 4**: Modern, high-performance styling engine.
+- **Shadcn-Vue / Reka UI**: Accessible, headless component primitives.
+- **Lucide Icons**: Consistent, technical iconography.
 
 ## Utilities
 
 - VueUse
 - PNPM Workspaces
-
----
-
-### Ecosystem (Planned)
-
-- [ ] **React Interface**: A parallel implementation of the EOS dashboard.
-- [ ] **Shared Core**: Shared logic and assets across frameworks.
 
 ---
 
@@ -102,7 +92,10 @@ This project explores:
 - resilient data layers with fallbacks
 - modern Vue architecture patterns
 
-Future plans include experimenting with **multi-framework implementations (Vue + React)** sharing the same data core.
+### Planned
+
+- [ ] **React Interface**: A parallel implementation of the EOS dashboard.
+- [ ] **Shared Core**: Shared logic and assets across frameworks.
 
 ---
 
