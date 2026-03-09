@@ -43,6 +43,7 @@ onMounted(() => {
           :tooltip="system.tooltip"
           :component="system.component"
           :loading="dashboardState.isLoading"
+          :isLive="system.isLive"
         >
           <component :is="system.component" v-if="system.component" :value="system.value" />
         </StatTile>

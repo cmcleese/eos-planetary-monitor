@@ -10,6 +10,7 @@ export interface DashboardTile {
   value?: string | number | Record<string, string | number>;
   status: StatusKey;
   component?: Component | null;
+  isLive?: boolean;
 }
 
 export interface DashboardState {
@@ -68,14 +69,19 @@ export function useDashboardData() {
   const fetchISS = async () => {
     try {
       const res = await fetch('https://api.wheretheiss.at/v1/satellites/25544');
+      if (!res.ok) throw new Error('API_UNAVAILABLE');
       const data = await res.json();
       dashboardState.issEnvironment.value = data.visibility.toUpperCase();
       dashboardState.issEnvironment.status =
         data.visibility === 'daylight'
           ? (STATUS.NORMAL as StatusKey)
           : (STATUS.WARNING as StatusKey);
+      dashboardState.issEnvironment.isLive = true;
     } catch (e) {
-      console.error(e);
+      console.warn('ISS connection lost, using nominal fallback.', e);
+      dashboardState.issEnvironment.value = 'STABLE (SIM)';
+      dashboardState.issEnvironment.status = STATUS.NORMAL as StatusKey;
+      dashboardState.issEnvironment.isLive = false;
     }
   };
 
@@ -83,25 +89,34 @@ export function useDashboardData() {
   const fetchWeather = async () => {
     try {
       const res = await fetch('https://services.swpc.noaa.gov/products/noaa-scales.json');
+      if (!res.ok) throw new Error('API_UNAVAILABLE');
       const data = await res.json();
 
-      // R, S, G scales come from data['0'] usually
       const rVal = parseInt(data['0'].r) || 0;
       const sVal = parseInt(data['0'].s) || 0;
       const gVal = parseInt(data['0'].g) || 0;
 
-      // Update Space Weather (Textual)
       const geoStormLevel = GEO_STORM_LEVELS[gVal];
       dashboardState.spaceWeather.value = geoStormLevel?.label || 'QUIET';
       dashboardState.spaceWeather.status = geoStormLevel?.status as StatusKey;
 
       // Update Solar Activity (R-S-G Object)
-      //dashboardState.solarActivity.value = { r: rVal, s: sVal, g: gVal };
-      // Simulated values for demonstration
-      dashboardState.solarActivity.value = { r: 3.2, s: 2.1, g: 1.2 };
-      console.log('Fetched Space Weather:', { r: rVal, s: sVal, g: gVal });
+      if (rVal > 0 || sVal > 0 || gVal > 0) {
+        dashboardState.solarActivity.value = { r: rVal, s: sVal, g: gVal };
+        dashboardState.solarActivity.isLive = true;
+        dashboardState.spaceWeather.isLive = true;
+      } else {
+        dashboardState.solarActivity.value = { r: 3.2, s: 2.1, g: 1.2 };
+        dashboardState.solarActivity.isLive = false;
+        dashboardState.spaceWeather.isLive = false;
+      }
     } catch (e) {
-      console.error(e);
+      console.warn('NOAA Space Weather API down, using simulation data.', e);
+      dashboardState.spaceWeather.value = 'NOMINAL (SIM)';
+      dashboardState.spaceWeather.status = STATUS.NORMAL as StatusKey;
+      dashboardState.spaceWeather.isLive = false;
+      dashboardState.solarActivity.value = { r: 1.5, s: 1.1, g: 0.5 };
+      dashboardState.solarActivity.isLive = false;
     }
   };
 
@@ -112,13 +127,30 @@ export function useDashboardData() {
       const res = await fetch(
         `https://api.nasa.gov/neo/rest/v1/feed?start_date=${today}&end_date=${today}&api_key=DEMO_KEY`
       );
+
       const data = await res.json();
+
+      // Specifically checking for the error structure provided: { error: { code: "...", message: "..." } }
+      if (!res.ok || (data && data.error)) {
+        const errorType = data?.error?.code || 'API_ERROR';
+        console.warn(`NASA [${errorType}] detected. Engaging orbital prediction fallback.`);
+        throw new Error(errorType);
+      }
+
+      if (typeof data.element_count === 'undefined') {
+        throw new Error('MALFORMED_DATA');
+      }
+
       const count = data.element_count;
       dashboardState.neoThreat.value = `${count} NEAR PASSES`;
       dashboardState.neoThreat.status =
         count > 0 ? (STATUS.WARNING as StatusKey) : (STATUS.NORMAL as StatusKey);
+      dashboardState.neoThreat.isLive = true;
     } catch (e) {
-      console.error(e);
+      // Fallback to a nominal value if API is unavailable or rate-limited
+      dashboardState.neoThreat.value = '15 NEAR PASSES';
+      dashboardState.neoThreat.status = STATUS.NORMAL as StatusKey;
+      dashboardState.neoThreat.isLive = false;
     }
   };
 
