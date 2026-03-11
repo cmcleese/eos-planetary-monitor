@@ -55,7 +55,7 @@ onMounted(() => {
 <style lang="scss">
 @layer utilities {
   .stat-tile {
-    @apply flex h-16 flex-col justify-between rounded-md border border-white bg-white/[0.03] p-2 text-red-900;
+    @apply flex h-16 flex-col justify-between rounded-md border border-white bg-white/3 p-2 text-red-900;
 
     .label {
       @apply text-[9px] font-medium tracking-tighter text-white/40 uppercase;

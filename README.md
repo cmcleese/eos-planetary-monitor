@@ -1,5 +1,8 @@
 # 🌍 EOS – Planetary Monitor
 
+[![Version](https://img.shields.io/badge/version-0.1.0--alpha-cyan.svg)](https://github.com/cmcleese/eos-planetary-monitor/releases)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
 A real-time planetary monitoring dashboard built with **Vue 3** and **CesiumJS**.
 
 It visualizes satellite data, space weather, and orbital objects on a 3D globe. The goal of the project is to experiment with **geospatial visualization, realtime data streams, and modern UI architecture**.
@@ -31,33 +34,28 @@ This project is mainly a **technical playground for building high-performance ge
 
 # Tech Stack
 
-## Frontend
+### Frontend
 
 - Vue 3 (Composition API + TypeScript)
 - Vite
 - CesiumJS
 
-## UI & Styling
+### UI & Styling
 
 - **Tailwind CSS 4**: Modern, high-performance styling engine.
 - **Shadcn-Vue / Reka UI**: Accessible, headless component primitives.
 - **Lucide Icons**: Consistent, technical iconography.
 
-## Utilities
-
-- VueUse
-- PNPM Workspaces
-
 ---
 
 # Running the Project
 
-## Requirements
+### Requirements
 
 - Node.js (LTS)
 - PNPM
 
-## Install
+### Install
 
 ```bash
 git clone https://github.com/your-repo/eos-planetary-monitor.git
@@ -65,7 +63,7 @@ cd eos-planetary-monitor
 pnpm install
 ```
 
-## Start development server
+### Start development server
 
 ```bash
 pnpm dev:vue
@@ -101,4 +99,6 @@ This project explores:
 
 # License
 
-MIT © Alessa M
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+Developed by [cmcleese](https://github.com/cmcleese)

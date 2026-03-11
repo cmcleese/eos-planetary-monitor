@@ -1,6 +1,6 @@
 {
   "name": "eos-planetary-monitor",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "A geospatial data interface inspired by LCARS aesthetics.",
   "private": true,
   "scripts": {
@@ -12,7 +12,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "Alessa M",
+  "author": "cmcleese",
   "license": "MIT",
   "packageManager": "pnpm@10.11.0",
   "devDependencies": {
