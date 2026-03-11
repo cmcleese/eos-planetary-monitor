@@ -1,7 +1,7 @@
 {
   "name": "eos-planetary-monitor",
   "version": "0.1.0",
-  "description": "A geospatial data interface inspired by LCARS aesthetics.",
+  "description": "A geospatial data interface.",
   "private": true,
   "scripts": {
     "dev:vue": "pnpm --filter vue-epm dev",
