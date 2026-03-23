@@ -1,0 +1,73 @@
+/* Plain CSS - Sass will never touch this */
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@theme {
+  /* --- 1. CORE PALETTE --- */
+  --color-orbit-cyan: #2dd4bf;
+  --color-orbit-bg: #0b0b0d;
+  --color-orbit-card: #121214;
+  --color-orbit-border: rgba(255, 255, 255, 0.08);
+
+  /* --- 2. SHADCN SYSTEM MAPPING --- */
+  /* These MUST exist for Shadcn buttons/cards to have color */
+
+  --color-background: var(--color-orbit-bg);
+  --color-foreground: #ffffff;
+
+  --color-card: var(--color-orbit-card);
+  --color-card-foreground: #ffffff;
+
+  --color-primary: var(--color-orbit-cyan);
+  --color-primary-foreground: var(--color-orbit-bg);
+
+  --color-secondary: #27272a;
+  --color-secondary-foreground: #ffffff;
+
+  --color-muted: #27272a;
+  --color-muted-foreground: #a1a1aa;
+
+  --color-accent: rgba(45, 212, 191, 0.15);
+  --color-accent-foreground: var(--color-orbit-cyan);
+
+  --color-border: var(--color-orbit-border);
+  --color-input: var(--color-orbit-border);
+  --color-ring: var(--color-orbit-cyan);
+
+  /* --- 3. RADIUS --- */
+  --radius-xl: 0.75rem;
+  --radius-lg: 0.5rem;
+  --radius-md: 0.25rem;
+  --radius-sm: 0.125rem;
+
+  /* -- Sidebar -- */
+  /* Same as constants.ts but in CSS variables for use in Tailwind */
+  --sidebar-width: 22rem;
+  --sidebar-width-icon: 3rem;
+  --breakpoint-monitor: 1200px;
+
+  /* --- SHADCN SIDEBAR VARIABLES --- */
+  /* This tells the Sidebar what colors to use on mobile and desktop */
+  --color-sidebar: var(--color-orbit-bg);
+  --color-sidebar-foreground: white;
+  --color-sidebar-primary: var(--color-orbit-cyan);
+  --color-sidebar-primary-foreground: var(--color-orbit-bg);
+  --color-sidebar-accent: rgba(45, 212, 191, 0.1);
+  --color-sidebar-accent-foreground: var(--color-orbit-cyan);
+  --color-sidebar-border: var(--color-orbit-border);
+  --color-sidebar-ring: var(--color-orbit-cyan);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  button:not(:disabled),
+  [role='button']:not(:disabled) {
+    cursor: pointer;
+  }
+}
