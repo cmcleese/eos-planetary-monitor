@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, type Component } from 'vue';
 import { Skeleton } from '@/components/ui/skeleton';
-import { Wifi, Cpu } from 'lucide-vue-next';
+import { Wifi, Cpu } from '@lucide/vue';
 
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { STATUS_STYLE, type StatusKey } from '@/constants/statuses';

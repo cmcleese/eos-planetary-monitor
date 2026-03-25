@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { LayersIcon } from 'lucide-vue-next';
+import { LayersIcon } from '@lucide/vue';
 
 import LayerListItem from '@/components/GeoLayers/LayerListItem.vue';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';

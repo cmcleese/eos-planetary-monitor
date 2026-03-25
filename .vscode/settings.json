@@ -35,5 +35,5 @@
     // { "pattern": "./react-app" }
   ],
    "prettier.configPath": ".prettierrc",
-  "prettier.requireConfig": true
+  "prettier.requireConfig": true,
 }

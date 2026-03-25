@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { onMounted, computed } from 'vue';
-import { ShieldCheckIcon } from 'lucide-vue-next';
+import { ShieldCheckIcon } from '@lucide/vue';
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
