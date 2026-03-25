@@ -15,10 +15,7 @@ provide('planetaryEngine', cesiumViewer);
 
 <template>
   <div class="flex h-screen w-screen overflow-hidden bg-black">
-    <!-- App Header -->
     <AppSidebar />
-
-    <!-- Sidebar -->
 
     <!-- Main Content -->
     <SidebarInset class="flex flex-1 overflow-hidden">
@@ -31,5 +28,5 @@ provide('planetaryEngine', cesiumViewer);
 </template>
 
 <style lang="scss" scoped>
-@import '@/styles/layouts/monitor-grid.scss';
+//@import '@/styles/layouts/monitor-grid.scss';
 </style>

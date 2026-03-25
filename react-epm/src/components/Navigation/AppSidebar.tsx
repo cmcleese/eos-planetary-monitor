@@ -5,8 +5,9 @@ import {
   SidebarFooter,
   SidebarGroup,
 } from '@/components/ui/sidebar';
-import AppHeader from '@/components/Navigation/AppHeader';
 import { ScrollArea } from '@/components/ui/scroll-area';
+import AppHeader from '@/components/Navigation/AppHeader';
+import StatusSummary from '@/components/StatusSummary/StatusSummary';
 
 export default function AppSidebar() {
   return (
@@ -14,17 +15,15 @@ export default function AppSidebar() {
       <SidebarHeader className="gap-0 px-6 py-4">
         <AppHeader />
       </SidebarHeader>
-      
+
       <ScrollArea className="min-h-0 w-full flex-1">
         <SidebarContent className="space-y-2 px-4">
           <SidebarGroup className="flex flex-col gap-4">
-            {/* <StatusSummary /> (Wait until we create this component) */}
+            <StatusSummary />
             {/* <LayersList /> (Wait until we create this component) */}
           </SidebarGroup>
 
-          <div className="flex-1">
-            {/* Space for Active Objects (Next Step) */}
-          </div>
+          <div className="flex-1">{/* Space for Active Objects (Next Step) */}</div>
         </SidebarContent>
       </ScrollArea>
 

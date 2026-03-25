@@ -40,7 +40,6 @@ onMounted(() => {
           :name="system.name"
           :value="system.value"
           :type="system.status"
-          :tooltip="system.tooltip"
           :component="system.component"
           :loading="dashboardState.isLoading"
           :isLive="system.isLive"
@@ -52,18 +51,4 @@ onMounted(() => {
   </Card>
 </template>
 
-<style lang="scss">
-@layer utilities {
-  .stat-tile {
-    @apply flex h-16 flex-col justify-between rounded-md border border-white bg-white/3 p-2 text-red-900;
-
-    .label {
-      @apply text-[9px] font-medium tracking-tighter text-white/40 uppercase;
-    }
-
-    .value {
-      @apply text-[11px] font-bold tracking-tight uppercase;
-    }
-  }
-}
-</style>
+<style lang="scss" scoped></style>

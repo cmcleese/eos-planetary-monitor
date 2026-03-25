@@ -1,5 +1,11 @@
 <script setup lang="ts">
-import Sidebar from '@/components/ui/sidebar/Sidebar.vue';
+import {
+  Sidebar,
+  SidebarContent,
+  SidebarHeader,
+  SidebarFooter,
+  SidebarGroup,
+} from '@/components/ui/sidebar';
 import StatusSummary from '@/components/StatusSummary/StatusSummary.vue';
 import AppHeader from '@/components/Navigation/AppHeader.vue';
 import LayersList from '@/components/GeoLayers/LayersList.vue';

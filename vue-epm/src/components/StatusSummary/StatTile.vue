@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, type Component } from 'vue';
 import { Skeleton } from '@/components/ui/skeleton';
-import { Wifi, Cpu } from '@lucide/vue';
+import { WifiIcon, CpuIcon } from '@lucide/vue';
 
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { STATUS_STYLE, type StatusKey } from '@/constants/statuses';
@@ -9,12 +9,11 @@ import { STATUS_STYLE, type StatusKey } from '@/constants/statuses';
 interface Props {
   name: string;
   value?: string | number | Record<string, string | number>;
-  tooltip?: string;
+  tooltipText?: string;
   /** status key like 'normal' | 'warning' | 'critical' | 'info' */
   type?: StatusKey;
   component?: Component | null;
   loading?: boolean;
-  useSlot?: boolean;
   isLive?: boolean;
   /** optional text override shown instead of the mapped text */
   statusText?: string;
@@ -28,7 +27,6 @@ const props = withDefaults(defineProps<Props>(), {
   type: 'info',
   component: null,
   loading: false,
-  useSlot: false,
   isLive: false,
   statusText: undefined,
   color: undefined,
@@ -38,7 +36,7 @@ const displayColor = computed(() => props.color ?? STATUS_STYLE[props.type]);
 
 // Tooltip helper
 const sourceInfo = computed(() => ({
-  icon: props.isLive ? Wifi : Cpu,
+  icon: props.isLive ? WifiIcon : CpuIcon,
   text: props.isLive ? 'Live Telemetry' : 'Simulated Data',
   class: props.isLive ? 'text-orbit-cyan' : 'text-white/20',
 }));
