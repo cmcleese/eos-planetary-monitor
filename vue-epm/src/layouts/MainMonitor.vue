@@ -7,10 +7,11 @@ import AppSidebar from '@/components/Navigation/AppSidebar.vue';
 import CesiumViewer from '@/components/Map/CesiumMap/CesiumViewer.vue';
 
 import { useCesium } from '@/components/Map/CesiumMap/useCesium';
+import { planetaryEngineKey } from '@/components/Map/CesiumMap/keys';
 
 // Provide
 const cesiumViewer = useCesium();
-provide('planetaryEngine', cesiumViewer);
+provide(planetaryEngineKey, cesiumViewer);
 </script>
 
 <template>
@@ -22,7 +23,7 @@ provide('planetaryEngine', cesiumViewer);
       <div class="absolute z-10 rounded-br-md bg-black/40">
         <AppHeader minimal />
       </div>
-      <main class="h-full w-full"><CesiumViewer :mapEnabled="true" /></main>
+      <main class="h-full w-full"><CesiumViewer /></main>
     </SidebarInset>
   </div>
 </template>

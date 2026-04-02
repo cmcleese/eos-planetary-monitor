@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { onMounted, onBeforeUnmount, useTemplateRef, inject } from 'vue';
-import type { useCesium } from '@/components/Map/CesiumMap/useCesium';
+import { planetaryEngineKey } from '@/components/Map/CesiumMap/keys';
 import LayerController from '@/components/Map/MapLayers/LayerController.vue';
 
 const props = withDefaults(
@@ -13,18 +13,18 @@ const props = withDefaults(
 );
 
 const mapContainer = useTemplateRef('mapContainer');
-const engine = inject<ReturnType<typeof useCesium>>('planetaryEngine');
+const cesiumInstance = inject(planetaryEngineKey);
 
 onMounted(async () => {
   if (mapContainer.value && props.mapEnabled) {
-    await engine?.initialize(mapContainer.value);
-    console.log('EOS Planetary Engine: Online');
+    await cesiumInstance?.initialize(mapContainer.value);
+    console.log('EOS Planetary cesiumInstance: Online');
   }
 });
 
 onBeforeUnmount(() => {
-  if (engine?.viewer.value) {
-    engine.viewer.value.destroy();
+  if (cesiumInstance?.viewer.value) {
+    cesiumInstance.viewer.value.destroy();
   }
 });
 </script>

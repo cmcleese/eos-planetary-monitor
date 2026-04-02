@@ -1,15 +1,9 @@
 import { SidebarInset } from '@/components/ui/sidebar';
 import AppHeader from '@/components/Navigation/AppHeader';
 import AppSidebar from '@/components/Navigation/AppSidebar';
-//import CesiumViewer from '@/components/Map/CesiumMap/CesiumViewer';
-//import { useCesium } from '@/components/Map/CesiumMap/useCesium';
-
-// Assuming you'll create a context for the planetary engine
-// import { PlanetaryEngineContext } from '@/context/PlanetaryEngineContext';
+import CesiumViewer from '@/components/Map/CesiumMap/CesiumViewer';
 
 export default function MainMonitor() {
-  //const cesiumViewer = useCesium();
-
   return (
     <div className="flex h-screen w-screen overflow-hidden bg-black">
       <AppSidebar />
@@ -19,7 +13,9 @@ export default function MainMonitor() {
           <AppHeader minimal />
         </div>
 
-        <main className="h-full w-full">{/* <CesiumViewer mapEnabled={true} /> */}</main>
+        <main className="h-full w-full">
+          <CesiumViewer />
+        </main>
       </SidebarInset>
     </div>
   );

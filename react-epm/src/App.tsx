@@ -1,10 +1,13 @@
 import MainMonitor from '@/layouts/MainMonitor';
 import { SidebarProvider } from '@/components/ui/sidebar';
+import { CesiumProvider } from '@/components/Map/CesiumMap/CesiumContext';
 
 function App() {
   return (
     <SidebarProvider>
-      <MainMonitor />
+      <CesiumProvider>
+        <MainMonitor />
+      </CesiumProvider>
     </SidebarProvider>
   );
 }
