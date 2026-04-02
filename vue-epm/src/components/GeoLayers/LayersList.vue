@@ -22,10 +22,8 @@ const { layers } = useLayers();
       <div class="pr-4">
         <LayerListItem
           v-for="layer in layers"
-          :id="layer.id"
           :key="layer.id"
-          :name="layer.name"
-          :type="layer.type"
+          :layer
         />
       </div>
     </CardContent>

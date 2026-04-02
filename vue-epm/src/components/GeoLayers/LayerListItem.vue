@@ -13,19 +13,18 @@ import {
 } from '@/components/ui/item';
 
 import { useLayerManager } from '@/components/Map/MapLayers/useLayerManager';
+import type { LayerConfig } from '@/components/Map/MapLayers/layers.config';
 
 const props = defineProps<{
-  name: string;
-  id: string;
-  type: string;
+  layer: LayerConfig;
 }>();
 
 const { isLayerActive, toggleLayer } = useLayerManager();
 
 // Link the Switch directly to our Global Manager
 const isEnabled = computed({
-  get: () => isLayerActive(props.id),
-  set: () => toggleLayer(props.id),
+  get: () => isLayerActive(props.layer.id),
+  set: () => toggleLayer(props.layer.id),
 });
 </script>
 
@@ -44,17 +43,18 @@ const isEnabled = computed({
 
     <ItemContent>
       <ItemTitle class="text-[13px] font-bold tracking-tight text-white/90 uppercase">
-        {{ name }}
+        {{ layer.name }}
       </ItemTitle>
       <ItemDescription class="font-mono text-[10px] text-white/30">
-        {{ id }} <span class="mx-1 text-white/10">|</span> {{ type }}
+        {{ layer.id }} <span class="mx-1 text-white/10">|</span> {{ layer.type }}
       </ItemDescription>
     </ItemContent>
 
     <ItemActions class="">
       <Switch
-        :id="id"
+        :id="layer.id"
         v-model="isEnabled"
+        :disabled="layer.disabled"
         class="data-[state=checked]:bg-orbit-cyan"
       />
       <Badge
