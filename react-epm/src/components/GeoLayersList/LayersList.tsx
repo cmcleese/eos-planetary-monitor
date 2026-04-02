@@ -17,14 +17,12 @@ export default function LayersList() {
       </CardHeader>
 
       <CardContent>
-        <div className="pr-4">
-          {layers.map((layer) => (
-            <LayerListItem
-              key={layer.id}
-              layer={layer}
-            />
-          ))}
-        </div>
+        {layers.map((layer) => (
+          <LayerListItem
+            key={layer.id}
+            layer={layer}
+          />
+        ))}
       </CardContent>
     </Card>
   );

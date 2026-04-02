@@ -19,13 +19,11 @@ const { layers } = useLayers();
     </CardHeader>
 
     <CardContent>
-      <div class="pr-4">
-        <LayerListItem
-          v-for="layer in layers"
-          :key="layer.id"
-          :layer
-        />
-      </div>
+      <LayerListItem
+        v-for="layer in layers"
+        :key="layer.id"
+        :layer
+      />
     </CardContent>
   </Card>
 </template>
