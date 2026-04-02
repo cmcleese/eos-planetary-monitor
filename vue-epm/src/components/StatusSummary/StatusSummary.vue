@@ -44,7 +44,11 @@ onMounted(() => {
           :loading="dashboardState.isLoading"
           :isLive="system.isLive"
         >
-          <component :is="system.component" v-if="system.component" :value="system.value" />
+          <component
+            :is="system.component"
+            v-if="system.component"
+            :value="system.value"
+          />
         </StatTile>
       </div>
     </CardContent>

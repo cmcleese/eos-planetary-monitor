@@ -14,7 +14,11 @@ import ScrollArea from '@/components/ui/scroll-area/ScrollArea.vue';
 
 <template>
   <!-- 'collapsible="icon"' makes it narrow instead of fully hiding (optional) -->
-  <Sidebar side="left" collapsible="offcanvas" class="bg-sidebar border-r border-white/5">
+  <Sidebar
+    side="left"
+    collapsible="offcanvas"
+    class="bg-sidebar border-r border-white/5"
+  >
     <SidebarHeader class="gap-0 px-6 py-4">
       <AppHeader />
     </SidebarHeader>

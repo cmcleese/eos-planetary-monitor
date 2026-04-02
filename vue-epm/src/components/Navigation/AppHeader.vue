@@ -26,7 +26,10 @@ const { open, isMobile } = useSidebar();
     </h1>
     <SidebarTrigger :class="cn('', minimal && open && 'monitor:hidden')" />
   </header>
-  <p v-if="!isMobile && !minimal" :class="'text-xs font-medium text-white/30'">
+  <p
+    v-if="!isMobile && !minimal"
+    :class="'text-xs font-medium text-white/30'"
+  >
     Space Situational Awareness
   </p>
 </template>

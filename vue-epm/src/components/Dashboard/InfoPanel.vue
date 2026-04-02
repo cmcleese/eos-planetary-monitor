@@ -1,13 +1,7 @@
-<script setup lang="ts">
-
-
-</script>
+<script setup lang="ts"></script>
 
 <template>
-  <div class="flex h-full px-4 bg-eos-glass">
-    InfoPanel
-  </div>
+  <div class="bg-eos-glass flex h-full px-4">InfoPanel</div>
 </template>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

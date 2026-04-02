@@ -68,14 +68,18 @@ const displayItems = computed(() => {
 <template>
   <TooltipProvider :delay-duration="200">
     <div class="mt-1 flex gap-1.5">
-      <div v-for="item in displayItems" :key="item.label" class="flex-1">
+      <div
+        v-for="item in displayItems"
+        :key="item.label"
+        class="flex-1"
+      >
         <Tooltip>
           <TooltipTrigger as-child>
             <div
               class="flex cursor-help flex-col items-center rounded-sm border p-1 transition-all"
               :class="item.colorClasses"
             >
-              <span class="mb-1 leading-none text-[11px]">{{ item.label }}</span>
+              <span class="mb-1 text-[11px] leading-none">{{ item.label }}</span>
               <span class="font-mono text-[11px] leading-none">{{ item.displayVal }}</span>
             </div>
           </TooltipTrigger>

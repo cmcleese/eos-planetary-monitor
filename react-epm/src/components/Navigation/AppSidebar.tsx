@@ -11,7 +11,11 @@ import StatusSummary from '@/components/StatusSummary/StatusSummary';
 
 export default function AppSidebar() {
   return (
-    <Sidebar side="left" collapsible="offcanvas" className="bg-sidebar border-r border-white/5">
+    <Sidebar
+      side="left"
+      collapsible="offcanvas"
+      className="bg-sidebar border-r border-white/5"
+    >
       <SidebarHeader className="gap-0 px-6 py-4">
         <AppHeader />
       </SidebarHeader>

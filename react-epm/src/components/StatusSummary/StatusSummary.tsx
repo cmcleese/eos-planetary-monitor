@@ -14,7 +14,11 @@ export default function StatusSummary() {
       </CardHeader>
       <CardContent>
         <div className="grid auto-rows-fr grid-cols-1 gap-2 @[300px]:grid-cols-2 @[400px]:grid-cols-3">
-          <StatTile name="System Status" value="Nominal" type="normal" />
+          <StatTile
+            name="System Status"
+            value="Nominal"
+            type="normal"
+          />
         </div>
       </CardContent>
     </Card>

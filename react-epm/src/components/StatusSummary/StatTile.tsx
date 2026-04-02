@@ -1,9 +1,10 @@
 import React from 'react';
-import { WifiIcon, CpuIcon } from 'lucide-react';
+import { WifiIcon, InfoIcon } from 'lucide-react';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 
 import { STATUS_STYLE, type StatusKey } from '@/constants/statuses';
+import { cn } from '@/lib/utils';
 
 export interface StatTileProps {
   name: string;
@@ -36,9 +37,9 @@ export const StatTile: React.FC<StatTileProps> = ({
   const displayColor = color ?? STATUS_STYLE[type];
 
   const sourceInfo = {
-    Icon: isLive ? WifiIcon : CpuIcon,
+    Icon: isLive ? WifiIcon : InfoIcon,
     text: isLive ? 'Live Telemetry' : 'Simulated Data',
-    className: isLive ? 'text-orbit-cyan' : 'text-white/20',
+    className: isLive ? 'text-orbit-cyan' : 'text-white/70',
   };
 
   return (
@@ -50,7 +51,11 @@ export const StatTile: React.FC<StatTileProps> = ({
             <TooltipTrigger asChild>
               <div className="cursor-help">
                 <sourceInfo.Icon
-                  className={`size-3.5 opacity-60 transition-opacity hover:opacity-100 ${sourceInfo.className} ${isLive ? 'animate-pulse opacity-90' : ''}`}
+                  className={cn(
+                    'size-3.5 opacity-75 transition-opacity hover:opacity-100',
+                    sourceInfo.className,
+                    isLive && 'animate-pulse opacity-90'
+                  )}
                 />
               </div>
             </TooltipTrigger>

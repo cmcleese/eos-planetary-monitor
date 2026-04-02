@@ -14,13 +14,19 @@ const { layers } = useLayers();
 <template>
   <template v-if="engine?.mapReady.value">
     <!-- Loop through our registry -->
-    <template v-for="layer in layers" :key="layer.id">
+    <template
+      v-for="layer in layers"
+      :key="layer.id"
+    >
       <!-- 
         Mount the component ONLY if:
         1. It's active in the manager
         2. The component actually exists (not null)
       -->
-      <component :is="layer.component" v-if="isLayerActive(layer.id) && layer.component" />
+      <component
+        :is="layer.component"
+        v-if="isLayerActive(layer.id) && layer.component"
+      />
     </template>
   </template>
 </template>

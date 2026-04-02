@@ -52,7 +52,11 @@ const isEnabled = computed({
     </ItemContent>
 
     <ItemActions class="">
-      <Switch :id="id" v-model="isEnabled" class="data-[state=checked]:bg-orbit-cyan" />
+      <Switch
+        :id="id"
+        v-model="isEnabled"
+        class="data-[state=checked]:bg-orbit-cyan"
+      />
       <Badge
         variant="outline"
         :class="[

@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import { computed, type Component } from 'vue';
 import { Skeleton } from '@/components/ui/skeleton';
-import { WifiIcon, CpuIcon } from '@lucide/vue';
+import { WifiIcon, InfoIcon } from '@lucide/vue';
 
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { STATUS_STYLE, type StatusKey } from '@/constants/statuses';
+import { cn } from '@/lib/utils';
 
 interface Props {
   name: string;
@@ -36,9 +37,9 @@ const displayColor = computed(() => props.color ?? STATUS_STYLE[props.type]);
 
 // Tooltip helper
 const sourceInfo = computed(() => ({
-  icon: props.isLive ? WifiIcon : CpuIcon,
+  icon: props.isLive ? WifiIcon : InfoIcon,
   text: props.isLive ? 'Live Telemetry' : 'Simulated Data',
-  class: props.isLive ? 'text-orbit-cyan' : 'text-white/20',
+  class: props.isLive ? 'text-orbit-cyan' : 'text-white/70',
 }));
 </script>
 
@@ -51,13 +52,16 @@ const sourceInfo = computed(() => ({
       <TooltipProvider :delay-duration="100">
         <Tooltip>
           <TooltipTrigger as-child>
-            <div class="cursor-help">
-              <component
-                :is="sourceInfo.icon"
-                class="size-3.5 opacity-60 transition-opacity hover:opacity-100"
-                :class="[sourceInfo.class, props.isLive ? 'animate-pulse opacity-90' : '']"
-              />
-            </div>
+            <component
+              :is="sourceInfo.icon"
+              :class="
+                cn(
+                  'size-3.5 opacity-75 transition-opacity hover:opacity-100',
+                  sourceInfo.class,
+                  props.isLive && 'animate-pulse opacity-90'
+                )
+              "
+            />
           </TooltipTrigger>
           <TooltipContent
             side="top"
@@ -78,7 +82,10 @@ const sourceInfo = computed(() => ({
     <!-- VALUE AREA -->
     <div class="text-[12px] font-bold tracking-tight uppercase">
       <!-- 1. LOADING STATE -->
-      <div v-if="props.loading" class="flex items-center space-y-0">
+      <div
+        v-if="props.loading"
+        class="flex items-center space-y-0"
+      >
         <!-- We make the skeleton match our Sci-Fi theme colors -->
         <Skeleton class="h-4 w-3/4 bg-white/10" />
       </div>
@@ -89,7 +96,10 @@ const sourceInfo = computed(() => ({
         <slot v-if="props.component"></slot>
 
         <!-- Default Text Display -->
-        <div v-else :class="displayColor">
+        <div
+          v-else
+          :class="displayColor"
+        >
           {{ props.value }}
         </div>
       </template>

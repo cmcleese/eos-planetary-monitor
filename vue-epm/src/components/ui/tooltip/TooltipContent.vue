@@ -36,10 +36,21 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
     >
       <slot />
 
-      <TooltipArrow as-child :width="12" :height="6" class="relative -top-[0.5px] z-10">
-        <svg viewBox="0 0 12 6" class="z-50 overflow-visible">
+      <TooltipArrow
+        as-child
+        :width="12"
+        :height="6"
+        class="relative -top-[0.5px] z-10"
+      >
+        <svg
+          viewBox="0 0 12 6"
+          class="z-50 overflow-visible"
+        >
           <!-- Background fill with no border -->
-          <polygon points="0,0 6,6 12,0" class="fill-slate-900" />
+          <polygon
+            points="0,0 6,6 12,0"
+            class="fill-slate-900"
+          />
           <!-- Two angled lines, ignoring the top connecting line -->
           <polyline
             points="0,0 6,6 12,0"
