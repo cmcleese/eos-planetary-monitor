@@ -8,6 +8,7 @@ import {
 import { ScrollArea } from '@/components/ui/scroll-area';
 import AppHeader from '@/components/Navigation/AppHeader';
 import StatusSummary from '@/components/StatusSummary/StatusSummary';
+import LayersList from '@/components/GeoLayersList/LayersList';
 
 export default function AppSidebar() {
   return (
@@ -24,7 +25,7 @@ export default function AppSidebar() {
         <SidebarContent className="space-y-2 px-4">
           <SidebarGroup className="flex flex-col gap-4">
             <StatusSummary />
-            {/* <LayersList /> (Wait until we create this component) */}
+            <LayersList />
           </SidebarGroup>
 
           <div className="flex-1">{/* Space for Active Objects (Next Step) */}</div>

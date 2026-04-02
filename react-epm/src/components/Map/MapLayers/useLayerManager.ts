@@ -11,9 +11,7 @@ interface LayerState {
  * This shares the 'enabledLayerIds' set across any component that asks for it.
  */
 const useLayerStore = create<LayerState>((set) => ({
-  enabledLayerIds: new Set<string>(
-    LAYER_CONFIGS.filter((s) => s.initialActive).map((s) => s.id)
-  ),
+  enabledLayerIds: new Set<string>(LAYER_CONFIGS.filter((s) => s.initialActive).map((s) => s.id)),
 
   toggleLayer: (id) =>
     set((state) => {
@@ -27,10 +25,6 @@ const useLayerStore = create<LayerState>((set) => ({
     }),
 }));
 
-/**
- * Migration note: This hook matches your Vue 'useLayerManager' composable.
- * It provides helpers to toggle and check if a layer is currently active.
- */
 export function useLayerManager() {
   const enabledLayerIds = useLayerStore((state) => state.enabledLayerIds);
   const toggleLayer = useLayerStore((state) => state.toggleLayer);
