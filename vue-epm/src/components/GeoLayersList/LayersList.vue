@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { LayersIcon } from '@lucide/vue';
 
-import LayerListItem from '@/components/GeoLayers/LayerListItem.vue';
+import LayerListItem from '@/components/GeoLayersList/LayerListItem.vue';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { useLayers } from '@/components/Map/MapLayers/useLayers';
 
