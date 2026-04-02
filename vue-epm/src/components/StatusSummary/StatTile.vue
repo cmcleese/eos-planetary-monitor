@@ -52,16 +52,18 @@ const sourceInfo = computed(() => ({
       <TooltipProvider :delay-duration="100">
         <Tooltip>
           <TooltipTrigger as-child>
-            <component
-              :is="sourceInfo.icon"
-              :class="
-                cn(
-                  'size-3.5 opacity-75 transition-opacity hover:opacity-100',
-                  sourceInfo.class,
-                  props.isLive && 'animate-pulse opacity-90'
-                )
-              "
-            />
+            <div class="cursor-help">
+              <component
+                :is="sourceInfo.icon"
+                :class="
+                  cn(
+                    'size-3.5 opacity-75 transition-opacity hover:opacity-100',
+                    sourceInfo.class,
+                    props.isLive && 'animate-pulse opacity-90'
+                  )
+                "
+              />
+            </div>
           </TooltipTrigger>
           <TooltipContent
             side="top"
