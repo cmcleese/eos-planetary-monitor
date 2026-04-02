@@ -19,7 +19,25 @@ const getScaleColor = (val: number) => {
   return 'text-red-500 border-red-500/50';
 };
 
-// 2. COMPUTED VIEW MODEL: Processes data once per update
+const keys = [
+  {
+    id: 'r',
+    label: 'R',
+    tooltip: 'Radio Blackouts: X-ray emissions causing communication interference.',
+  },
+  {
+    id: 's',
+    label: 'S',
+    tooltip: 'Solar Radiation: High-energy protons affecting satellites and astronauts.',
+  },
+  {
+    id: 'g',
+    label: 'G',
+    tooltip: 'Geomagnetic Storms: Solar wind shocks affecting power grids and navigation.',
+  },
+];
+
+// Updated displayItems - processes data once per update
 const displayItems = computed(() => {
   if (typeof props.value === 'string') {
     // If it's a string, we can just show it as a single item
@@ -35,24 +53,6 @@ const displayItems = computed(() => {
   // Default values if data hasn't arrived yet
   const source =
     props.value && typeof props.value === 'object' ? props.value : { r: 0, s: 0, g: 0 };
-
-  const keys = [
-    {
-      id: 'r',
-      label: 'R',
-      tooltip: 'Radio Blackouts: X-ray emissions causing communication interference.',
-    },
-    {
-      id: 's',
-      label: 'S',
-      tooltip: 'Solar Radiation: High-energy protons affecting satellites and astronauts.',
-    },
-    {
-      id: 'g',
-      label: 'G',
-      tooltip: 'Geomagnetic Storms: Solar wind shocks affecting power grids and navigation.',
-    },
-  ];
 
   return keys.map((k) => {
     const num = Number(source[k.id]) || 0;
