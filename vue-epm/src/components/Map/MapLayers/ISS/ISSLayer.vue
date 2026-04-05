@@ -22,7 +22,7 @@ import { usePlanetaryEngine } from '@/components/Map/CesiumMap/keys';
 import issModelUrl from '@/assets/models/ISS-A-Low.glb?url';
 //import issModelUrl from '@/assets/models/ISS-B-High.glb?url';
 
-const engine = usePlanetaryEngine('ISSLayer');
+const engine = usePlanetaryEngine();
 const { viewer } = engine;
 
 const issEntity = ref<Entity | null>(null);

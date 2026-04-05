@@ -3,7 +3,7 @@ import { onMounted, onUnmounted, markRaw, ref } from 'vue';
 import { Cartesian3, Color, Cartesian2, CustomDataSource } from 'cesium';
 import { usePlanetaryEngine } from '@/components/Map/CesiumMap/keys';
 
-const engine = usePlanetaryEngine('ObservatoriesLayer');
+const engine = usePlanetaryEngine();
 const { viewer } = engine;
 
 // Ground station shape

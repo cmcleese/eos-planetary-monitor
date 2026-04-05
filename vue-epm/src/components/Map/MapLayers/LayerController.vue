@@ -3,7 +3,7 @@ import { useLayerManager } from '@/components/Map/MapLayers/useLayerManager';
 import { useLayers } from '@/components/Map/MapLayers/useLayers';
 import { usePlanetaryEngine } from '@/components/Map/CesiumMap/keys';
 
-const engine = usePlanetaryEngine('LayerController');
+const engine = usePlanetaryEngine();
 
 const { isLayerActive } = useLayerManager();
 const { layers } = useLayers();

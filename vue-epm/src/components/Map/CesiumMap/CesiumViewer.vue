@@ -13,7 +13,7 @@ const props = withDefaults(
 );
 
 const mapContainer = useTemplateRef('mapContainer');
-const cesiumInstance = usePlanetaryEngine('CesiumViewer');
+const cesiumInstance = usePlanetaryEngine();
 
 onMounted(async () => {
   if (mapContainer.value && props.mapEnabled) {
