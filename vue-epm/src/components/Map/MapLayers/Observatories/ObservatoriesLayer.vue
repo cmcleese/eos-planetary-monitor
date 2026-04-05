@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { onMounted, onUnmounted, inject, markRaw, ref } from 'vue';
-import { Cartesian3, Color, Entity, Cartesian2, CustomDataSource } from 'cesium';
+import { onMounted, onUnmounted, markRaw, ref } from 'vue';
+import { Cartesian3, Color, Cartesian2, CustomDataSource } from 'cesium';
+import { usePlanetaryEngine } from '@/components/Map/CesiumMap/keys';
 
-import type { useCesium } from '@/components/Map/CesiumMap/useCesium';
-
-const { viewer } = inject<ReturnType<typeof useCesium>>('planetaryEngine')!;
+const engine = usePlanetaryEngine('ObservatoriesLayer');
+const { viewer } = engine;
 
 // Ground station shape
 interface GroundStation {
@@ -13,7 +13,6 @@ interface GroundStation {
   lon: number;
 }
 
-const groundStationEntities = ref<Entity[]>([]);
 const groundStationDataSource = ref<CustomDataSource | null>(null);
 
 const groundStations: GroundStation[] = [
@@ -35,20 +34,16 @@ const addGroundStations = (stations: GroundStation[]) => {
   const ds = groundStationDataSource.value!;
 
   stations.forEach((station) => {
-    const ent = markRaw(
-      ds.entities.add({
-        name: station.name,
-        position: Cartesian3.fromDegrees(station.lon, station.lat),
-        point: { pixelSize: 8, color: Color.GOLD, outlineWidth: 2 },
-        label: {
-          text: station.name,
-          font: '13px monospace',
-          pixelOffset: new Cartesian2(0, 20),
-        },
-      })
-    );
-
-    groundStationEntities.value.push(ent);
+    ds.entities.add({
+      name: station.name,
+      position: Cartesian3.fromDegrees(station.lon, station.lat),
+      point: { pixelSize: 8, color: Color.GOLD, outlineWidth: 2 },
+      label: {
+        text: station.name,
+        font: '13px monospace',
+        pixelOffset: new Cartesian2(0, 20),
+      },
+    });
   });
 };
 
@@ -74,7 +69,6 @@ onUnmounted(() => {
   if (viewer.value && groundStationDataSource.value) {
     viewer.value.dataSources.remove(groundStationDataSource.value, true);
     groundStationDataSource.value = null;
-    groundStationEntities.value = [];
   }
 });
 </script>

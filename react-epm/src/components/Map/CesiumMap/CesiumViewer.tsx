@@ -1,6 +1,6 @@
 import { useEffect, useRef, ReactNode } from 'react';
+import LayerController from '@/components/Map/MapLayers/LayerController';
 import { useCesium } from './CesiumContext';
-//import LayerController from '@/components/Map/MapLayers/LayerController';
 
 interface CesiumViewerProps {
   mapEnabled?: boolean;
@@ -34,7 +34,7 @@ export default function CesiumViewer({ mapEnabled = true, children }: CesiumView
       id="cesium-container"
     >
       {/* Headless components that interact with the globe */}
-      {/* <LayerController /> */}
+      <LayerController />
 
       {/* Any HTML overlays for the globe specifically */}
       {children}

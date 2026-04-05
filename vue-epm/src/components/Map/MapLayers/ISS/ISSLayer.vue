@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, onUnmounted, inject, markRaw, ref } from 'vue';
+import { onMounted, onUnmounted, markRaw, ref } from 'vue';
 import {
   Cartesian3,
   Color,
@@ -18,11 +18,12 @@ import {
   CallbackProperty,
 } from 'cesium';
 
-import type { useCesium } from '@/components/Map/CesiumMap/useCesium';
+import { usePlanetaryEngine } from '@/components/Map/CesiumMap/keys';
 import issModelUrl from '@/assets/models/ISS-A-Low.glb?url';
 //import issModelUrl from '@/assets/models/ISS-B-High.glb?url';
 
-const { viewer } = inject<ReturnType<typeof useCesium>>('planetaryEngine')!;
+const engine = usePlanetaryEngine('ISSLayer');
+const { viewer } = engine;
 
 const issEntity = ref<Entity | null>(null);
 const ISS_ID = 'ZARYA-25544';
