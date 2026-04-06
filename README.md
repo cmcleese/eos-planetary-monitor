@@ -1,6 +1,6 @@
 # EOS – Planetary Monitor
 
-[![Version](https://img.shields.io/badge/version-0.1.0--alpha-cyan.svg)](https://github.com/cmcleese/eos-planetary-monitor/releases) [![Vue](https://img.shields.io/badge/Vue-3-42b883.svg?logo=vue.js)](./vue-epm) [![React](https://img.shields.io/badge/React-19-61dafb.svg?logo=react)](./react-epm) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Version](https://img.shields.io/badge/version-0.2.0-cyan.svg)](https://github.com/cmcleese/eos-planetary-monitor/releases) [![Vue](https://img.shields.io/badge/Vue-3-42b883.svg?logo=vue.js)](./vue-epm) [![React](https://img.shields.io/badge/React-19-61dafb.svg?logo=react)](./react-epm) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 A real-time planetary monitoring dashboard built with **CesiumJS**, in **Vue 3** and **React**.
 
