@@ -1,11 +1,8 @@
-# 🌍 EOS – Planetary Monitor
+# EOS – Planetary Monitor
 
-[![Version](https://img.shields.io/badge/version-0.1.0--alpha-cyan.svg)](https://github.com/cmcleese/eos-planetary-monitor/releases)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Version](https://img.shields.io/badge/version-0.1.0--alpha-cyan.svg)](https://github.com/cmcleese/eos-planetary-monitor/releases) [![Vue](https://img.shields.io/badge/Vue-3-42b883.svg?logo=vue.js)](./vue-epm) [![React](https://img.shields.io/badge/React-19-61dafb.svg?logo=react)](./react-epm) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-A real-time planetary monitoring dashboard built with **Vue 3** and **CesiumJS**.
-
-It visualizes satellite data, space weather, and orbital objects on a 3D globe. The goal of the project is to experiment with **geospatial visualization, realtime data streams, and modern UI architecture**.
+A real-time planetary monitoring dashboard built with **CesiumJS**, in **Vue 3** and **React**.
 
 ![Application Screenshot](app-screenshot.png)
 
@@ -13,38 +10,20 @@ It visualizes satellite data, space weather, and orbital objects on a 3D globe. 
 
 # Overview
 
-EOS is a dashboard-style interface for monitoring things happening around Earth — satellites, the ISS, solar activity, and near-earth objects.
+EOS is a dashboard style interface for monitoring things happening around Earth — satellites, the ISS, solar activity, and near-earth objects. It combines live data sources with orbital simulations when live telemetry isn't available.
 
-It combines live data sources with orbital simulations when live telemetry isn't available.
-
-This project is mainly a **technical playground for building high-performance geospatial interfaces**, not an official monitoring tool.
+This project exists as two parallel implementations (`vue-epm` and `react-epm`) and is mainly a **technical playground for building high-performance geospatial interfaces**, not an official monitoring tool.
 
 ---
 
 # Features
 
-- 🌍 **3D Globe Visualization** powered by CesiumJS
-- 🛰 **Satellite Tracking** including the ISS
-- ☀️ **Solar Activity Monitoring** (NOAA scales)
-- ☄ **Near Earth Object indicators**
-- 🔄 **Fallback simulations** when live data isn't available
-- 🎛 **Dashboard UI** designed for quick situational awareness
-
----
-
-# Tech Stack
-
-### Frontend
-
-- Vue 3 (Composition API + TypeScript)
-- Vite
-- CesiumJS
-
-### UI & Styling
-
-- **Tailwind CSS 4**: Modern, high-performance styling engine.
-- **Shadcn-Vue / Reka UI**: Accessible, headless component primitives.
-- **Lucide Icons**: Consistent, technical iconography.
+- **3D Globe Visualization** powered by CesiumJS
+- **Satellite Tracking** including the ISS
+- **Solar Activity Monitoring** (NOAA scales)
+- **Near Earth Object indicators**
+- **Fallback simulations** when live data isn't available
+- **Dashboard UI** designed for quick situational awareness
 
 ---
 
@@ -58,15 +37,17 @@ This project is mainly a **technical playground for building high-performance ge
 ### Install
 
 ```bash
-git clone https://github.com/your-repo/eos-planetary-monitor.git
-cd eos-planetary-monitor
 pnpm install
 ```
 
 ### Start development server
 
 ```bash
+# Vue version
 pnpm dev:vue
+
+# React version
+pnpm dev:react
 ```
 
 ---
@@ -88,12 +69,7 @@ This project explores:
 - real-time geospatial interfaces
 - satellite orbit visualization
 - resilient data layers with fallbacks
-- modern Vue architecture patterns
-
-### Planned
-
-- [ ] **React Interface**: A parallel implementation of the EOS dashboard.
-- [ ] **Shared Core**: Shared logic and assets across frameworks.
+- how Vue and React differ when building the same complex UI
 
 ---
 
