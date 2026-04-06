@@ -17,13 +17,13 @@ export default function AppSidebar() {
       collapsible="offcanvas"
       className="bg-sidebar border-r border-white/5"
     >
-      <SidebarHeader className="gap-0 px-6 py-4">
+      <SidebarHeader className="gap-0 p-4">
         <AppHeader />
       </SidebarHeader>
 
       <ScrollArea className="min-h-0 w-full flex-1">
         <SidebarContent className="space-y-2 px-4">
-          <SidebarGroup className="flex flex-col gap-4">
+          <SidebarGroup className="flex flex-col gap-4 p-0">
             <StatusSummary />
             <LayersList />
           </SidebarGroup>

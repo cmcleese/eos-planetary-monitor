@@ -19,13 +19,13 @@ import ScrollArea from '@/components/ui/scroll-area/ScrollArea.vue';
     collapsible="offcanvas"
     class="bg-sidebar border-r border-white/5"
   >
-    <SidebarHeader class="gap-0 px-6 py-4">
+    <SidebarHeader class="gap-0 p-4">
       <AppHeader />
     </SidebarHeader>
     <ScrollArea class="min-h-0 w-full flex-1">
       <SidebarContent class="space-y-2 px-4">
         <!-- Status Summary Section -->
-        <SidebarGroup class="flex flex-col gap-4">
+        <SidebarGroup class="flex flex-col gap-4 p-0">
           <StatusSummary />
           <LayersList />
         </SidebarGroup>
